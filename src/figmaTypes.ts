@@ -94,6 +94,7 @@ export type NodeType =
   | 'DOCUMENT'
   | 'CANVAS'
   | 'FRAME'
+  | 'SECTION'
   | 'GROUP'
   | 'VECTOR'
   | 'BOOLEAN_OPERATION'
@@ -112,6 +113,7 @@ export type Node =
   | Document
   | Canvas
   | Frame
+  | Section
   | Group
   | Vector
   | BooleanOperation
@@ -354,6 +356,11 @@ export interface FrameBase extends Global {
 /** A node of fixed size containing other nodes */
 export interface Frame extends FrameBase {
   readonly type: 'FRAME';
+}
+
+export interface Section extends FrameBase {
+  readonly type: 'SECTION';
+  readonly sectionContentsHidden?: boolean;
 }
 
 /** A logical grouping of nodes */
